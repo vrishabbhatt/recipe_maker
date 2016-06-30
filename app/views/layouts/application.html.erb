@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RecipeMaker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar navbar-default">
+<% if user_signed_in? %>
+  <ul class = "h-list">
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+  <li>
+  <%= link_to('recipes', index_page_path) %>        
+  </li>
+  <li>
+  <%= link_to('your recipes', recipie_index_path) %>        
+  </li>
+  </ul>
+<% else %>
+  <ul class = "h-list">
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+  <li>
+  <%= link_to('Sign Up', new_user_registration_path)  %>  
+  </li>
+ </ul>
+<% end %>
+</div>
+<%= yield %>
+
+</body>
+</html>

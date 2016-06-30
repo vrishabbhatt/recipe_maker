@@ -1,0 +1,31 @@
+|this will be for all the recipes
+- if flash[:notice] 
+    = flash[:notice]
+.col-md-12
+-@all.each do |recipe|
+	br
+	.recipe-top
+		h1.recipe-title.text-center style="padding 5px"
+			= recipe.title
+		br
+		.col-md-12
+		.col-md-8.text-right
+			|by
+		.col-md-4
+			h5
+				= recipe.get_user.name
+	hr
+	.recipe-description.text-center style="padding 50x; font-size: 25px"
+		= recipe.description
+	br
+	hr
+	.recipe-avg-rating.col-md-6.text-center style="border-right: thin ; border-color: rgb(238,238,238)"
+		= recipe.avg_rating
+		| /10
+	.recipe-individual-rating.col-md-6.text-center
+		= render(partial:'recipe_rating' ,locals: {recipe: recipe})
+
+	.btn.btn-primary.button  
+		= link_to "show more" , individual_recipe_path(recipe) , class: "button"
+	
+

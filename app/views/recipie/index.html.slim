@@ -1,0 +1,28 @@
+- if flash[:notice] 
+    = flash[:notice]
+
+br 
+h1 hello
+= @user.email
+br
+= @user.recipes.count
+br
+= link_to 'new',recipie_new_path
+- if !@recipes.blank?
+	table.table-hover
+	-@recipes.each do |a|
+		br
+		tr
+			td
+				= a.title
+			td
+				= a.description
+			td
+				=a.id
+			td
+				=a.avg_rating
+			td
+				= link_to"edit", recipie_edit_path(r_id: a.id) ,class:'btn btn-default'
+
+				/ = link_to"edit", recipie_edit_path(:recipe =>{id: a.id}) 
+			td.del-button = link_to 'delete',recipie_destroy_path(a) , method: :delete , data: {confirm: "are you sure"} ,class:'btn btn-default',remote: true

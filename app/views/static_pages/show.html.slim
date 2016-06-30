@@ -1,0 +1,34 @@
+.recipe-top
+	.text-center
+		h1
+			= @recipe.title
+		br
+	.col-md-12
+		.col-md-8.text-right
+			|by
+		.col-md-4
+			h5
+				= @recipe.get_user.name
+	hr
+.col-md-12.show-container style="padding: 50px" 
+	h2.description-title.text-left
+		| Description
+	.description.text-center
+		= @recipe.description
+	br
+	.col-md-4 style="border-right: solid"
+		h3.text-left.ingredients-title
+			| Ingredients
+		.text-center.ingredients
+		-@recipe.ingredients.each do |ing|
+			= ing.ingredient_name
+			br
+	.col-md-8
+		h3.text-left.steps-title
+			| Steps
+		.text-center.steps
+.col-md-12-rate
+		= render(partial:'recipe_rating2' ,locals: {recipe: @recipe})
+
+
+

@@ -1,0 +1,8 @@
+= simple_form_for @recipe ,url: recipie_create_url do |f|
+	=  f.input :title ,required: true
+   	=  f.input :description, required: true
+   	= f.simple_fields_for :ingredients do |ingredient|
+    	= render 'ingredient_fields', f: ingredient
+		= link_to_add_association 'add ingredients', f, :ingredients
+   	= f.button :submit
+
