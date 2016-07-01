@@ -1,9 +1,10 @@
-
-= simple_form_for @recipe ,url: recipie_update_path(id: @recipe.id) ,method: "patch" do |f|
-	=  f.input :title
-   	=  f.input :description
-   	= f.simple_fields_for :ingredients do |ingredient|
-      = render 'ingredient_fields', f: ingredient
-    .links
-      = link_to_add_association 'add ingredient', f, :ingredients
-   	= f.button :submit
+.text-center
+	.all-forms
+		= simple_form_for @recipe ,url: recipie_update_path(id: @recipe.id) ,method: "patch" do |f|
+			=  f.input :title
+		   	=  f.input :description
+		   	= f.simple_fields_for :ingredients do |ingredient|
+		      = render 'ingredient_fields', f: ingredient
+		    .links
+		      = link_to_add_association 'add ingredient', f, :ingredients
+		   	= f.button :submit

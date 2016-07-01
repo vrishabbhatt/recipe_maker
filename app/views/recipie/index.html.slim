@@ -1,28 +1,32 @@
 - if flash[:notice] 
     = flash[:notice]
-
-br 
-h1 hello
-= @user.email
-br
-= @user.recipes.count
-br
-= link_to 'new',recipie_new_path
+.text-center
+	br 
+	h1 
+		| hello 
+		= @user.name || ""
+	br
+	h3
+		| Number of recipes submitted: 
+		= @user.recipes.count
+	br
+	hr
+	hr
 - if !@recipes.blank?
-	table.table-hover
-	-@recipes.each do |a|
-		br
-		tr
-			td
-				= a.title
-			td
-				= a.description
-			td
-				=a.id
-			td
-				=a.avg_rating
-			td
-				= link_to"edit", recipie_edit_path(r_id: a.id) ,class:'btn btn-default'
+	table.all-tables
+		-@recipes.each do |a|
+			br
+			tr
+				td
+					|Recipes Name: 
+					= a.title
+				td
+					| Recipe Description	
+					= a.description
+				td style="display: inline"
+					= link_to"edit", recipie_edit_path(r_id: a.id) ,class:'btn btn-default'
 
-				/ = link_to"edit", recipie_edit_path(:recipe =>{id: a.id}) 
-			td.del-button = link_to 'delete',recipie_destroy_path(a) , method: :delete , data: {confirm: "are you sure"} ,class:'btn btn-default',remote: true
+					/ = link_to"edit", recipie_edit_path(:recipe =>{id: a.id}) 
+				td.del-button = link_to 'delete',recipie_destroy_path(a) , method: :delete , data: {confirm: "are you sure"} ,class:'btn btn-default',remote: true ,style: "display:inline"
+.text-center	
+	= link_to 'create a new recipe',recipie_new_path
