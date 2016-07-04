@@ -1,1 +1,9 @@
-location.reload()
+var variable = "<%=@var%>";
+var avg_rating = "<%=@avg_rating%>";
+console.log(variable);
+console.log('works');
+console.log(avg_rating);
+
+
+$('.flash-message').html(variable);
+$('.recipe-avg').text(avg_rating);

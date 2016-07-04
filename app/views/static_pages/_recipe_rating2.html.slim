@@ -1,4 +1,4 @@
 - @a = Rating.find_by(user_id: current_user.id , recipe_id: recipe.id)|| Rating.new(user_id: current_user.id , recipe_id: recipe.id)
-= simple_form_for @a , url: individual_recipe_path(@a ,r_id: recipe.id) , method: :get, remote: true do |f|
+= simple_form_for @a , url: individual_recipe_path(r_id: recipe.id) , method: :get, remote: true do |f|
 	= f.input :score, collection: 1..10 , input_html: {class: 'rating'}
 	=f.button :submit

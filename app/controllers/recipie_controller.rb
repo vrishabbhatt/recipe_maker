@@ -31,7 +31,9 @@ class RecipieController < ApplicationController
 
 	def update
 		puts "++++++++++===============++++++++"
+		puts "update"
 		puts params
+		puts params[:recipe][:title]
 		@recipe = Recipe.find(params[:id])
 		if recipe_valid params
 			if @recipe.update(recipe_params)
@@ -67,7 +69,7 @@ private
       params.require(:recipe).permit(:title, :description , ingredients_attributes: [:id , :ingredient_name ,:_destroy])
     end
     def recipe_valid params
-    	if params[:title].blank? || params[:description].blank?
+    	if params[:recipe][:title].blank? || params[:recipe][:description].blank?
     		false
     	else
     		true

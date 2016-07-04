@@ -9,6 +9,8 @@ class StaticPagesController < ApplicationController
     		format.html{}
     		format.js{
     			get_ratings params
+    			@avg_rating = Recipe.find(params[:r_id]).avg_rating
+
     		}
     	end
 	end

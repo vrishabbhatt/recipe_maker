@@ -1,5 +1,6 @@
-- if flash[:notice] 
-    = flash[:notice]
+.text-center.flash-message style ="height: 20px;width: 400px"
+	-if flash[:message]
+		|flash message
 -@all.each do |recipe|
 	br
 	.recipe-top.text-center
@@ -24,10 +25,14 @@
 	.recipe-avg-rating.col-md-6.text-center style="border-right: thin ; border-color: rgb(238,238,238)"
 		|Average user's rating
 		br
-		= recipe.avg_rating
+		.recipe-avg
+			= recipe.avg_rating
 		| /10
 	.recipe-individual-rating.col-md-6.text-center
 		= render(partial:'recipe_rating' ,locals: {recipe: recipe})
+	br
+	br
+	br
 	.button.text-center
 		.btn.btn-primary  
 			= link_to "show more" , individual_recipe_path(recipe) , class: "button-text"

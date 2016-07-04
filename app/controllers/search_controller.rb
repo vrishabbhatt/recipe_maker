@@ -10,7 +10,7 @@ class SearchController < ApplicationController
   	else
   		@query = params[:query][:title]
   	end
-  	@page = params[:page] || 1
+  	@page = params[:page].to_i || 1
   	@results = GoogleCustomSearchApi.search(@query , page: @page)
   	puts @results.items.first
   	puts '++++++++++++++++++++++++++++++++'

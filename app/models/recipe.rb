@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
 	belongs_to :user
 	has_many :ingredients , dependent: :destroy
-		accepts_nested_attributes_for :ingredients,allow_destroy: true
+	accepts_nested_attributes_for :ingredients,allow_destroy: true
 	has_many :ratings
 
 	def avg_rating
