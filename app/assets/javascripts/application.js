@@ -17,7 +17,18 @@
 //= require bootstrap.min
 //= require cocoon
 //= require_tree .
+$(document).ready(function(){
+	$('#rating_score').mouseenter(function() {
+       $(this).animate({
+           height: '+=10px'
+       });
+     });
+	$('#rating_score').mouseleave(function() {
+       $(this).animate({
+           height: '-=10px'
+       });
+     });
+	$('.flash-message').mouseenter(function(){
+	});
 
-$('.del-button').click(function() {
-    location.reload();
 });

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'search/index'
+  get 'search' => 'search#index' , as: :search
+  post 'search/result' => 'search#search_result' , as: :search_result
+  # get  'searchs' => 'search#searchs' ,as: :searchs
+  # post 'searchs' => 'search#searchs' ,as: :searchs
   devise_for :users
 
   root 'static_pages#home'

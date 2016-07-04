@@ -19,6 +19,7 @@ class StaticPagesController < ApplicationController
     		}
     		format.js {
     			get_ratings params
+    			flash[:alert] = "yeah baby"
     		}
     	end
 	end
@@ -39,8 +40,10 @@ class StaticPagesController < ApplicationController
     	puts rating
     	if rating.save
     		flash[:notice] = "Thank you for rating"
+    		@var = "Thank you for rating"
     	else
     		flash[:notice] = "Ooops something went wrong"
+    		@var = "did not work"
     	end
     end
 

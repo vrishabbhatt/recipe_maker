@@ -1,0 +1,12 @@
+ol
+	- @results.items.each do |result|
+		li style="color: black; background-color: blue;"
+			= link_to result.title,result.formattedUrl
+			hr
+			br
+
+	
+	= button_to "for more results" , search_result_url, params: {page: @page, querys: @query} 
+
+
+	

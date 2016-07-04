@@ -30,6 +30,7 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'cocoon'
+gem 'google_custom_search_api'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
