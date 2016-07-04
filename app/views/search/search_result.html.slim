@@ -1,11 +1,16 @@
 ol
 	- @results.items.each do |result|
 		li style="color: black; background-color: blue;"
+			- if result['pagemap'] && result['pagemap']['cse_thumbnail'] && img = result.pagemap.cse_thumbnail.first
+				= image_tag(result.pagemap.cse_thumbnail.first.src , :style=>"height:30px;width:50px;")
 			= link_to result.title,result.formattedUrl
-			hr
 			br
+			= result.snippet
+			br
+			hr
+			
 
-	
+
 	= button_to "for more results" , search_result_url, params: {page: @page, querys: @query} 
 
 
