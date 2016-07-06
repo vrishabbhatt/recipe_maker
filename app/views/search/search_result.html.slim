@@ -19,6 +19,6 @@ ol
 		- page = @page	
 		- page = page - 1
 		= page
-		= button_to "previous results" , search_result_url, params: {page: page, querys: @query} unless page == 0
+		= button_to "previous results" , search_result_url, params: {page: page, querys: @query} unless page <= 0
 
 	
